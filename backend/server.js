@@ -13,7 +13,10 @@ const dotenv = require('dotenv').config()
 const port = process.env.PORT || 5000
 const mongourl = process.env.MONGO_URL;
 
-mongoose.connect(mongourl)
+const mongoose = require('mongoose');
+
+
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const app = express()
@@ -23,7 +26,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/tareas', require('./routes/tareasRoutes'))
 
-app.use(errorHandler)
+app.use(errorHandler);
 
 app.listen(port, ()=> console.log(`Servidor iniciado en el puerto ${port}`))
 

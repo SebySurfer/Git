@@ -1,4 +1,4 @@
-const mongoose = require('mongodb');
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 
@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
         unique: true
     },
     phoneNumber: {
-        type: Int32Array,
+        type: Number,
         required: [true, "Por favor teclea tu numero"]
     }
 

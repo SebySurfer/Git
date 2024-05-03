@@ -1,4 +1,4 @@
-const jwt = require('jsonbreoken')
+const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
 
 const user = require('../models/userModels')
@@ -6,7 +6,7 @@ const user = require('../models/userModels')
 const protect = asyncHandler( (async(req, res, next) =>{
     let token
 
-    if(req.headers.authorization && req.headers.authorization.startswith('Bearer'))
+    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer'))
     try {
 
 
@@ -18,7 +18,7 @@ const protect = asyncHandler( (async(req, res, next) =>{
 
         //obtener los datos del usuario del payload del token y lo vamos a poner en un objeto
 
-        req.user = await UserActivation.findById(decoded.id_usuario).select('-password')
+        req.user = await User.findById(decoded.id_usuario).select('-password')
 
         next()
 
