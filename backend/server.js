@@ -6,10 +6,15 @@ const colors = require('colors')
 const connectDB = require('./config/db')
 
 const { errorHandler } = require('./middleware/errorMiddleware')
+const { default: mongoose } = require('mongoose')
 
 const dotenv = require('dotenv').config()
 
 const port = process.env.PORT || 5000
+const mongourl = process.env.MONGO_URL;
+
+mongoose.connect(mongourl)
+
 
 const app = express()
 
