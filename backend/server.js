@@ -4,10 +4,17 @@ const express = require('express')
 const colors = require('colors')
 const connectDB = require('./config/db')
 const { errorHandler } = require('./middleware/errorMiddleware')
+
+
 const dotenv = require('dotenv').config()
 
+
+console.log('Loaded environment variables:', dotenv.parsed);
+
+
+
 const port = process.env.PORT || 3000
-const mongourl = process.env.MONGO_URL;
+//const mongourl = process.env.MONGO_URL;
 
 const app = express()
 
