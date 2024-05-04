@@ -1,15 +1,15 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("process.env.MONGO_URI", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Assuming your models are defined in a file named models.js in the same directory
 const { User } = require('../models/userModels')
 
 const connectDB = async () => {
     try {
-        console.log('MongoDB URL:', process.env.MONGO_URL);
-        await mongoose.connect(process.env.MONGO_URL, {
+        console.log('MongoDB URL:', process.env.MONGO_URI);
+        await mongoose.connect("process.env.MONGO_URI", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

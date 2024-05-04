@@ -3,6 +3,9 @@ console.log("hola mundo")
 const express = require('express')
 const colors = require('colors')
 const connectDB = require('./config/db')
+// Connect to MongoDB
+connectDB();
+
 const { errorHandler } = require('./middleware/errorMiddleware')
 
 
@@ -21,8 +24,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-// Connect to MongoDB
-connectDB();
+
 
 // Routes
 app.use('/api/tareas', require('./routes/tareasRoutes'))
