@@ -1,10 +1,12 @@
 console.log("hola mundo")
 
 const express = require('express')
-const colors = require('colors')
 const connectDB = require('./config/db')
 // Connect to MongoDB
 connectDB();
+
+console.log('MongoDB URL:', process.env.MONGO_URL);
+
 
 const { errorHandler } = require('./middleware/errorMiddleware')
 
@@ -12,7 +14,7 @@ const { errorHandler } = require('./middleware/errorMiddleware')
 const dotenv = require('dotenv').config()
 
 
-console.log('Loaded environment variables:', dotenv.parsed);
+console.log('Loaded environment variables:', process.env);
 
 
 
