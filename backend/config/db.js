@@ -8,7 +8,7 @@ const { User } = require('../models/userModels')
 
 const connectDB = async () => {
     try {
-        console.log('MongoDB URI:', process.env.MONGO_URL);
+        console.log('MongoDB URL:', process.env.MONGO_URL);
         await mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
